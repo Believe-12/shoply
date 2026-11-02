@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shoply
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shoply
+  template:
+    metadata:
+      labels:
+        app: shoply
+    spec:
+      containers:
+        - name: shoply
+          image: believe12/internet-shop:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
